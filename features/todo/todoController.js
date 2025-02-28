@@ -35,19 +35,6 @@ class TodoController {
       this.setUpEditEvent();
       this.setUpDeleteEvent();
     }
-
-    handleRowEvents(todo) {
-      const { row, eventInput, startInput, endInput, editBtn, deleteBtn } = todo;
-
-      editBtn.addEventListener("click", () => {
-        this.submitNewTodo(eventInput.value, startInput.value, endInput.value, row);
-      });
-      
-      deleteBtn.addEventListener("click", () => {
-        this.#model.removeTodo(row.id);
-        this.#view.removeTodoElement(row.id);
-      });
-    }
   
     handleAddRowEvents(addRowElements) {
       const { row, eventInput, startInput, endInput, addBtn, cancelBtn } = addRowElements;
