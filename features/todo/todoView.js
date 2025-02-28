@@ -4,6 +4,7 @@ class TodoView {
       this.todoList = document.querySelector(".todo-list tbody");
     }
   
+    /* Render a todo row */
     renderTodoElement(todo) {
       const { id, eventName, startDate, endDate } = todo;
       const todoRow = document.createElement("tr");
@@ -34,16 +35,17 @@ class TodoView {
 
       actions.append(editBtn, deleteBtn);
       
-      /* Append elements to the row */
       todoRow.append(event, start, end, actions);
       return todoRow
     }
 
+    /* Render a new todo row */
     renderNewTodo(todo) {
       const todoRow = this.renderTodoElement(todo);
       this.todoList.appendChild(todoRow);
     }
 
+    /* Render an existing todo row */
     renderExistingTodo(todo) {
       const todoRow = this.renderTodoElement(todo);
       const existingRow = document.getElementById(todo.id);
@@ -51,6 +53,7 @@ class TodoView {
       existingRow.replaceWith(todoRow);
     }
 
+    /* Render a todo row for adding a new todo */
     renderAddElement() {
       const addRow = document.createElement("tr");
       addRow.classList.add("add-todo-row");
@@ -96,6 +99,7 @@ class TodoView {
       };
     }
 
+    /* Render a todo row for editing an existing todo */
     renderEditElement(todo) {
       const { id, eventName, startDate, endDate } = todo;
 
@@ -155,6 +159,7 @@ class TodoView {
       };
     }
   
+    /* Remove a todo row */
     removeTodoElement(todoId) {
       const todoRow = document.getElementById(todoId);
       todoRow.remove();
