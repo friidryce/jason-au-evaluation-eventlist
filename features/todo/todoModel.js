@@ -19,6 +19,13 @@ class TodoModel {
     addTodo(newTodo) {
       this.#todos.push(newTodo);
     }
+
+    updateTodo(id, updatedTodo) {
+      const index = this.#todos.findIndex((todo) => todo.id === id);
+      if (index !== -1) {
+        this.#todos[index] = updatedTodo;
+      }
+    }
   
     removeTodo(id) {
       this.#todos = this.#todos.filter((todo) => todo.id !== id);
